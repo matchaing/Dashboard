@@ -33,7 +33,8 @@
 }
 .page{
   padding-top: 60px;
-  padding-left: 160px;
+  padding-left: 170px;
+  /* text-align: left; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
