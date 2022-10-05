@@ -1,4 +1,4 @@
-import './Data.css';
+import '../../App.css';
 
 export default function Header() {
     return (

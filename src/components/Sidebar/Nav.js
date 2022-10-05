@@ -1,10 +1,11 @@
 import React from "react";
 import {Route, Link,  BrowserRouter as Router } from "react-router-dom";
 import './Nav.css'
-import Detail from '../pages/Detail';
-import Display from '../pages/Display';
-import Main from '../pages/Main';
-import Risk from '../pages/Risk';
+import Detail from '../../pages/dashboard/Detail';
+import Display from '../../pages/dashboard/Display';
+import Main from '../../pages/dashboard/Main';
+import Risk from '../../pages/dashboard/Risk';
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link>
 
 const Nav = () => {
     return (

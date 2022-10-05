@@ -1,21 +1,23 @@
 import React from "react";
-import '../App.css'
-import DisplayData from '../components/DisplayData';
+import '../../App.css'
+import Data from '../../data/queries/Data';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 //react-query 사용
 const queryClient = new QueryClient();
 
-class Display extends React.Component {
+
+class Main extends React.Component {
     render () {
         return (
-            <div className="page">데이터 현황
+            <div className="page">메인
                 <QueryClientProvider client={queryClient}>
-                <DisplayData/>
+                <Data/>
                 </QueryClientProvider>
             </div>
+            
         )
     }
 }
 
-export default Display;
+export default Main;

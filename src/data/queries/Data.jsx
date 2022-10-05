@@ -7,10 +7,12 @@ const Data = () => {
     const payment_currency = "KRW";
     const order_currency = "BTC";
 
+    //console.log(res)
     const {status, data, error} = useQuery(
         payment_currency,() => 
         fetch(`https://api.bithumb.com/public/transaction_history/${order_currency}_${payment_currency}`)
             .then((res) => res.json())
+            // .then((data) =>console.log(data));
             .then((res) => res.data),
             { refetchInterval: 1000 } 
     );
