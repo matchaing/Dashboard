@@ -12,7 +12,7 @@ const Nav = () => {
         <Router>
         <div>
         <nav>
-            <div>
+            <div class = "nav flex-column">
                 <Link to="/main">메인</Link>
             </div>
             <div>

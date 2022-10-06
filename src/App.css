@@ -32,9 +32,34 @@
   margin-bottom: 40px;
 }
 .page{
-  padding-top: 60px;
-  padding-left: 170px;
-  /* text-align: left; */
+  padding-top: 80px;
+  padding-left: 200px;
+  /* align-items: left; */
+  text-align: left;
+}
+
+input{
+  margin-top: 20px;
+  font-size: 16px;
+  width:80%;
+  padding:8px;
+  border:2px;
+  background-color: #eaeaea;
+  outline-color: #4871b2;
+  float: left;
+}
+
+button{
+  margin-top: 20px;
+  width: 100px;
+  /* height: 100%; */
+  border:0px;
+  padding: 8px;
+  background: #4871b2;
+  outline: none;
+  /* float: right; */
+  margin-right: 30px;
+  color:#ffffff
 }
 
 @media (prefers-reduced-motion: no-preference) {

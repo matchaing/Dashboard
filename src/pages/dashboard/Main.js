@@ -1,6 +1,6 @@
 import React from "react";
 import '../../App.css'
-import Data from '../../data/queries/Data';
+// import Data from '../../data/queries/Data';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 //react-query 사용
@@ -12,7 +12,7 @@ class Main extends React.Component {
         return (
             <div className="page">메인
                 <QueryClientProvider client={queryClient}>
-                <Data/>
+                {/* <Data/> */}
                 </QueryClientProvider>
             </div>
             
