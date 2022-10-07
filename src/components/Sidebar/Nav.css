@@ -11,7 +11,7 @@ nav {
     height: 100%;
     overflow: auto;
     z-index: 1;
-    border: solid 1px;
+    /* border: solid 1px; */
 }
 
 nav > div {
