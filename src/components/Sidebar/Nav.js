@@ -5,7 +5,7 @@ import Detail from '../../pages/dashboard/Detail';
 import Display from '../../pages/dashboard/Display';
 // import Main from '../../pages/dashboard/Main';
 import Risk from '../../pages/dashboard/Risk';
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link>
+{/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link> */}
 
 const Nav = () => {
     return (
