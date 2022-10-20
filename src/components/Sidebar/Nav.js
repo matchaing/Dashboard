@@ -1,10 +1,9 @@
 import React from "react";
-import {Route, Link,  BrowserRouter as Router } from "react-router-dom";
+import {Route, Link, Redirect,  BrowserRouter as Router } from "react-router-dom";
 import './Nav.css'
 import Detail from '../../pages/dashboard/Detail';
 import Display from '../../pages/dashboard/Display';
 import Risk from '../../pages/dashboard/Risk';
-{/* <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></link> */}
 
 const Nav = () => {
     return (
@@ -22,11 +21,20 @@ const Nav = () => {
                         <Link to="/risk">위험도 분석</Link>
                     </div>
                 </nav>
-
-                {/* <Route path="/" component={Display} /> */}
-                <Route path="/detail" component={Detail} />
-                <Route path="/display" component={Display} />
-                <Route path="/risk" component={Risk} />
+                <switch>
+                    <Route
+                    exact
+                    path="/"
+                    render={() => {
+                        return (
+                            <Redirect to="/display" />
+                            )
+                    }}
+                    />
+                    <Route path="/display" component={Display} />
+                    <Route path="/detail" component={Detail} />
+                    <Route path="/risk" component={Risk} />
+                </switch>
             </div>
         </Router>
     );
