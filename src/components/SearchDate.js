@@ -1,5 +1,6 @@
 import '../App.css';
 import { useState } from "react";
+import DateRequester from '../data/DateRequester';
 
 function getvalue(){
     var idx = document.getElementById('idx').value;
@@ -16,7 +17,6 @@ export default function SearchDate() {
     return (
         <div>
             <div className='SearchDate'>
-                {/* <getClimateView/> */}
                 <form>
                     <input type="date" name="sdate" min="2018-01-01" id="s_date" 
                     value={startdate}
@@ -30,9 +30,13 @@ export default function SearchDate() {
                         console.log(e.target.value);
                         setEnddate(e.target.value);
                         } }/>
-                    <button onClick={()=>document.location.href=getvalue()}>조회하기</button>
-                    
                 </form>
+                    {/* <button>조회하기</button>     */}
+                    {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
+                    <div>
+                        <DateRequester s={startdate} e={enddate}/>
+                    </div>
+                {/* </form> */}
             </div>
         </div>
     )
