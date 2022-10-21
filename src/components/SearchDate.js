@@ -14,6 +14,14 @@ export default function SearchDate() {
     const [startdate,setStartdate] = useState(0);
     const [enddate,setEnddate] = useState(0);
 
+    // const handleClickButton = (e => {
+    //     // console.log('state');
+    //     const {s} = startdate.toString();
+    //     const {e} = enddate.toString();
+    //     setStartdate(s);
+
+    // };
+
     return (
         <div>
             <div className='SearchDate'>
@@ -30,11 +38,12 @@ export default function SearchDate() {
                         console.log(e.target.value);
                         setEnddate(e.target.value);
                         } }/>
+                    {/* <button onClick={handleClickButton}>조회하기</button> */}
                 </form>
                     {/* <button>조회하기</button>     */}
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
                     <div>
-                        <DateRequester s={startdate} e={enddate}/>
+                        <DateRequester s={startdate.toString()} e={enddate.toString()}/>
                     </div>
                 {/* </form> */}
             </div>
