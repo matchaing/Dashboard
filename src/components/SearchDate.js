@@ -25,7 +25,7 @@ export default function SearchDate() {
     const enddate_str = enddate.toString().replace(/-/g, "");
     console.log(startdate_str,enddate_str);
 
-    let rawUrl = `http://localhost:8080/Test3/detail/climate?sdate=${startdate_str}&edate=${enddate_str}`;
+    let rawUrl = `http://localhost:8080/Dashboard/detail/climate?sdate=${startdate_str}&edate=${enddate_str}`;
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
 
