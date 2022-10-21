@@ -1,5 +1,5 @@
 import '../App.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateRequester from '../data/DateRequester';
 
 function getvalue(){
@@ -22,6 +22,24 @@ export default function SearchDate() {
 
     // };
 
+    const startdate_str = startdate.toString().replace(/-/g,"");
+    const enddate_str = enddate.toString().replace(/-/g, "");
+    console.log(startdate_str,enddate_str);
+
+    let rawUrl = `http://localhost:8080/Test3/detail/climate?sdate=${startdate_str}&edate=${enddate_str}`;
+    let encodeUrl = encodeURI(rawUrl);
+    console.log(encodeUrl);
+
+    const getData = async() => {
+        const res = await fetch("encodeUrl")
+        .then((res)=>res.json());
+        console.log(res);
+    };
+
+    useEffect(()=>{
+        getData();
+    },[])
+
     return (
         <div>
             <div className='SearchDate'>
@@ -43,7 +61,7 @@ export default function SearchDate() {
                     {/* <button>조회하기</button>     */}
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
                     <div>
-                        <DateRequester s={startdate.toString()} e={enddate.toString()}/>
+                        {/* <DateRequester s={startdate.toString()} e={enddate.toString()}/> */}
                     </div>
                 {/* </form> */}
             </div>
