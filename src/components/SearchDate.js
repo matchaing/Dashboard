@@ -1,6 +1,5 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-import DateRequester from '../data/DateRequester';
 
 function getvalue(){
     var idx = document.getElementById('idx').value;
@@ -31,7 +30,7 @@ export default function SearchDate() {
     console.log(encodeUrl);
 
     const getData = async() => {
-        const res = await fetch("encodeUrl")
+        const res = await fetch(encodeUrl)
         .then((res)=>res.json());
         console.log(res);
     };
