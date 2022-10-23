@@ -16,34 +16,48 @@ const DataRequester = (props) =>{
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
 
+    const [data, setData] = useState([0]);
 
-    const [data, setData] = useState([]);
-
-    const GetData = async()=>{
-        const res = await fetch(encodeUrl)
+    const getData = async()=>{
+        const res = await fetch(encodeUrl, {method: 'GET'})
         .then((res)=>res.json());
-        // .then((res) => res.data);
         
-        // let length = res.length;
-        // console.log(length);
-        
-        // let labels = [];
-        // let humidity = [];
-        // let temperature = [];
+        let result = JSON.stringify(res);
+        let climate_data = (JSON.parse(result));
+        // console.log(climate_data);
 
-        // for(let i=0; i<length; i++){
-        //     labels.push(data.data[i].DAILYDATADT);
-        //     humidity.push(data.data[i].HUMIDITY);
-        //     temperature.push(data.data[i].TEMPERATURE);
-        // }
-        console.log(res);
-        const climateData = res.map((it, index)=>{
-            return {
-                label: it.DAILYDATADT,
-                humidity: it.HUMIDITY,
-                temperature: it.TEMPERATURE
-            };
-        });
+        ///데이터 존재 확인
+        let length = res.length;
+        console.log(length);
+        if(length == 0){
+            alert("데이터가 비어있습니다.");
+            return;
+        }
+        
+        let labels = [];
+        let humidity = [];
+        let temperature = [];
+
+        if(climate_data && climate_data)
+        for(let i=0; i<length; i++){
+            if(!Number.isNaN(parseInt(climate_data[i].DAILYDATADT))){
+                labels.push(parseInt(climate_data.climate_data[i].DAILYDATADT));
+                humidity.push(parseInt(climate_data.climate_data[i].HUMIDITY));
+                temperature.push(parseInt(climate_data.climate_data[i].TEMPERATURE));
+            }
+            
+        }
+        // console.log(labels?.[1]);
+        // console.log(labels);
+        // const climateData = climate_data && climate_data.map((it)=>{
+        //     return {
+        //         dailydatadt: it.DAILYDATADT,
+        //         humidity: it.HUMIDITY,
+        //         temperature: it.TEMPERATURE
+        //     };
+        // });
+
+
         // const [data, setData] = useState({
         //     labels: data.map((data) => data.DAILYDATATIME),
         //     datasets: [
@@ -54,7 +68,12 @@ const DataRequester = (props) =>{
         //         },
         //     ],
         // });
-        setData(climateData);
+
+        // setLabel(label);
+        // setHumidity(humidity);
+        // setTemperature(temperature);
+
+        setData(climate_data);
     //     new Chart(document.getElementById("line-chart"), {
     //     type: 'line',
     //     data: {
@@ -80,17 +99,17 @@ const DataRequester = (props) =>{
     
 
     useEffect(()=>{
-        setTimeout(()=>{
-            GetData();
-        }, 1500);
-        // GetData();
-    },[])
+        if(data){
+            getData();
+            console.log("useEffect");
+        }
+    },[encodeUrl])
 
     return (
         <div className="page">
             
             <div className='chart'>
-                <LineChart chartData={data}/>
+                {/* <LineChart chartData={data}/> */}
             </div>
                     {/* <ClimateChart lables={labels} humidity={humidity}/> */}
         </div>

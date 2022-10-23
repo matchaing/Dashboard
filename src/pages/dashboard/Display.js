@@ -2,13 +2,16 @@ import {React, useState, useEffect} from "react";
 import '../../App.css'
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ClimateData } from '../../data/ClimateData';
+import { GochangData } from '../../data/GochangData';
 import LineChart from "../charts/LineChart";
 import ScatterChart from "../charts/ScatterChart";
 import BarChart from "../charts/BarChart";
+import { render } from "@testing-library/react";
 
 //react-query 사용
 const queryClient = new QueryClient();
 
+// class Display extends React.Component{
 export default function Display(){
     const [climateData, setClimateData] = useState({
         labels: ClimateData.map((data) => data.DAILYDATATIME),
@@ -51,6 +54,7 @@ export default function Display(){
         },[])
 
 
+        
         return (
             <div className="page">
                 <p className= "p-text">데이터 현황</p>
@@ -66,6 +70,5 @@ export default function Display(){
                 </div> */}
                 </QueryClientProvider>
             </div>
-        )
-    
+        );
 }
