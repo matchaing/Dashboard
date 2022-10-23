@@ -12,7 +12,7 @@ class Detail extends React.Component {
             <div className="page">데이터 상세 분석
             
                 <QueryClientProvider client={queryClient}>
-                    <SearchDate/>
+                    <SearchDate />
                 </QueryClientProvider>    
             </div>
             

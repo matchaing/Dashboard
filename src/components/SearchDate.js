@@ -1,5 +1,6 @@
 import '../App.css';
 import { useEffect, useState } from "react";
+import DataRequester from './DataRequester';
 
 function getvalue(){
     var idx = document.getElementById('idx').value;
@@ -9,9 +10,10 @@ function getvalue(){
     return urll;
 }
 
-export default function SearchDate() {
+export default function SearchDate(){
     const [startdate,setStartdate] = useState(0);
     const [enddate,setEnddate] = useState(0);
+    // console.log(props);
 
     // const handleClickButton = (e => {
     //     // console.log('state');
@@ -20,24 +22,6 @@ export default function SearchDate() {
     //     setStartdate(s);
 
     // };
-
-    const startdate_str = startdate.toString().replace(/-/g,"");
-    const enddate_str = enddate.toString().replace(/-/g, "");
-    console.log(startdate_str,enddate_str);
-
-    let rawUrl = `http://localhost:8080/Dashboard/detail/climate?sdate=${startdate_str}&edate=${enddate_str}`;
-    let encodeUrl = encodeURI(rawUrl);
-    console.log(encodeUrl);
-
-    const getData = async() => {
-        const res = await fetch(encodeUrl)
-        .then((res)=>res.json());
-        console.log(res);
-    };
-
-    useEffect(()=>{
-        getData();
-    },[])
 
     return (
         <div>
@@ -57,13 +41,14 @@ export default function SearchDate() {
                         } }/>
                     {/* <button onClick={handleClickButton}>조회하기</button> */}
                 </form>
-                    {/* <button>조회하기</button>     */}
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
                     <div>
-                        {/* <DateRequester s={startdate.toString()} e={enddate.toString()}/> */}
+                        <DataRequester param={"climate"} s={startdate.toString()} e={enddate.toString()}/>
+                        <DataRequester param={"gochang"} s={startdate.toString()} e={enddate.toString()}/>
                     </div>
                 {/* </form> */}
             </div>
         </div>
     )
 }
+// export default SearchDate;
