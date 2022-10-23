@@ -44,7 +44,7 @@ export default function SearchDate(){
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
                     <div>
                         <DataRequester param={"climate"} s={startdate.toString()} e={enddate.toString()}/>
-                        <DataRequester param={"gochang"} s={startdate.toString()} e={enddate.toString()}/>
+                        {/* <DataRequester param={"gochang"} s={startdate.toString()} e={enddate.toString()}/> */}
                     </div>
                 {/* </form> */}
             </div>

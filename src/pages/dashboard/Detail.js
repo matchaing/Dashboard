@@ -9,8 +9,8 @@ const queryClient = new QueryClient();
 class Detail extends React.Component {
     render () {
         return (
-            <div className="page">데이터 상세 분석
-            
+            <div className="page">
+                <p className= "p-text">데이터 상세 분석</p>
                 <QueryClientProvider client={queryClient}>
                     <SearchDate />
                 </QueryClientProvider>    

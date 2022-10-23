@@ -6,4 +6,8 @@ function LineChart({chartData}){
     return <Line data={chartData}/>;
 }
 
+LineChart.defaultProps={
+    climateData: [],
+};
+
 export default LineChart;

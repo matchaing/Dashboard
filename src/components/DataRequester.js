@@ -1,6 +1,8 @@
 import '../App.css';
 import { useQuery, useEffect, useState } from "react";
-// import LineChart from "../charts/LineChart";
+// import ClimateChart from "./ClimateChart";
+import LineChart from "../pages/charts/LineChart";
+import { Chart, Line } from "react-chartjs-2";
 
 const DataRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
@@ -14,50 +16,86 @@ const DataRequester = (props) =>{
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
 
-    const getData = async()=>{
-        const res = await fetch(encodeUrl).then((res)=>res.json());
-        console.log(res);
+
+    const [data, setData] = useState([]);
+
+    const GetData = async()=>{
+        const res = await fetch(encodeUrl)
+        .then((res)=>res.json());
+        // .then((res) => res.data);
         
+        // let length = res.length;
+        // console.log(length);
+        
+        // let labels = [];
+        // let humidity = [];
+        // let temperature = [];
+
+        // for(let i=0; i<length; i++){
+        //     labels.push(data.data[i].DAILYDATADT);
+        //     humidity.push(data.data[i].HUMIDITY);
+        //     temperature.push(data.data[i].TEMPERATURE);
+        // }
+        console.log(res);
+        const climateData = res.map((it, index)=>{
+            return {
+                label: it.DAILYDATADT,
+                humidity: it.HUMIDITY,
+                temperature: it.TEMPERATURE
+            };
+        });
+        // const [data, setData] = useState({
+        //     labels: data.map((data) => data.DAILYDATATIME),
+        //     datasets: [
+        //         {
+        //         label: "Humidity",
+        //         data: climateData.map((data) => data.HUMIDITY),
+        //         backgroundColor: "#ecf0f1",
+        //         },
+        //     ],
+        // });
+        setData(climateData);
+    //     new Chart(document.getElementById("line-chart"), {
+    //     type: 'line',
+    //     data: {
+    //         labels: labels,
+    //         datasets: [
+    //             {
+    //                 label: "Climateeee",
+    //                 backgroundColor: "#ecf0f1",
+    //                 data: humidity
+    //             }
+    //         ]
+    //     },
+    //     options: {
+    //         legend: { display: false },
+    //         title: {
+    //             display: true,
+    //             text: 'hhtext'
+    //         }
+    //     }
+    // });
+
     };
+    
 
     useEffect(()=>{
-        getData();
+        setTimeout(()=>{
+            GetData();
+        }, 1500);
+        // GetData();
     },[])
-
-    // const {status, data, error} = useQuery([],() => 
-    //     fetch(encodeUrl)
-    //         // .then((res) => res.json())
-    //         .then((data) =>console.log(data))
-    //         // .then((res) => res.data)
-    //         // { refetchInterval: 1000 } 
-    // );
-
-    // if (status === "loading") {
-    //     return <span>Loading...</span>;
-    // }
-    
-    // if (status === "error") {
-    //     return <span>Error: {error.message}</span>;
-    // }
-
-    
-    // const [climateData_temp, setClimateData_temp] = useState({
-    //     labels: ClimateData.map((data) => data.DAILYDATATIME),
-    //     datasets: [
-    //         {
-    //         label: "Temperature",
-    //         data: ClimateData.map((data) => data.TEMPERATURE),
-    //         backgroundColor: "#5bbfd9",
-    //         },
-    //     ],
-    //     });
-    
 
     return (
         <div className="page">
-            test
-
+            
+            <div className='chart'>
+                <LineChart chartData={data}/>
+            </div>
+                    {/* <ClimateChart lables={labels} humidity={humidity}/> */}
         </div>
     )
 }
+
+
 export default DataRequester;

@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import '../../App.css'
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ClimateData } from '../../data/ClimateData';
@@ -38,9 +38,22 @@ export default function Display(){
         ],
         });
 
+        const getData = async()=>{
+            const res = await fetch("http://localhost:8080/Dashboard/detail/gochang?sdate=20211208&edate=20211208"
+            ).then((res)=>res.json());
+            console.log(res);
+            
+            
+        };
+    
+        useEffect(()=>{
+            getData();
+        },[])
+
 
         return (
-            <div className="page">데이터 현황 
+            <div className="page">
+                <p className= "p-text">데이터 현황</p>
                 <QueryClientProvider client={queryClient}>
                 <div className='chart'>
                     <LineChart chartData={climateData}/>
