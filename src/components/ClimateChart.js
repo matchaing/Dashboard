@@ -21,11 +21,12 @@ const ClimateChart = (props) =>{
 
     return (
             <div className="page">
-                <div className='chart'>
-                    <LineChart chartData={climateData}/>
-                        </div>
-                        {/* <ClimateChart lables={labels} humidity={humidity}/> */}
+                <QueryClientProvider client={queryClient}>
+                    <div className='chart'>
+                        <LineChart chartData={climateData}/>
                     </div>
+                </QueryClientProvider>
+            </div>
         )
     }
     
