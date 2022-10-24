@@ -1,7 +1,7 @@
 import '../App.css';
 import { useQuery, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-// import ClimateChart from "./ClimateChart";
+import ClimateChart from "./ClimateChart";
 import LineChart from "../pages/charts/LineChart";
 import { Chart, Line } from "react-chartjs-2";
 
@@ -21,6 +21,10 @@ const DataRequester = (props) =>{
     console.log(encodeUrl);
 
     const [data, setData] = useState([0]);
+    const [labels, setLabel] = useState([]);
+    const [humidity, setHumidity] = useState([]);
+    const [temperature, setTemperature] = useState([]);
+
 
     const getData = async()=>{
         const res = await fetch(encodeUrl, {method: 'GET'})
@@ -38,9 +42,7 @@ const DataRequester = (props) =>{
             return;
         }
         // console.log(typeof(climate_data); //object인거 확인
-        let labels = [];
-        let humidity = [];
-        let temperature = [];
+        
         
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(climate_data[i].DAILYDATADT))){
@@ -48,11 +50,11 @@ const DataRequester = (props) =>{
                 humidity.push(parseInt(climate_data[i].HUMIDITY));
                 temperature.push(parseInt(climate_data[i].TEMPERATURE));
             }
-            
         }
-        console.log(labels);
+            
+        // }
         console.log(humidity);
-        console.log(temperature);
+        // console.log(temperature);
 
         // const climateData = climate_data && climate_data.map((it)=>{
         //     return {
@@ -74,28 +76,31 @@ const DataRequester = (props) =>{
         //     ],
         // });
 
-        // setLabel(label);
-        // setHumidity(humidity);
-        // setTemperature(temperature);
+        // const [climateData, setClimateData] = useState({
+        //     labels: labels,
+        //     datasets: [
+        //         {
+        //         label: "Humidity",
+        //         data: humidity,
+        //         backgroundColor: [
+        //             // "#8ab0ba",
+        //             "#ecf0f1",
+        //             // "#619cab",
+        //             // "#5bbfd9",
+        //             // "#159cbf",
+        //         ],
+        //         },
+        //     ],
+        // });
 
-    //     const [climateData, setClimateData] = useState({
-    //         labels: labels,
-    //         datasets: [
-    //             {
-    //             label: "Humidity",
-    //             data: humidity,
-    //             backgroundColor: [
-    //                 // "#8ab0ba",
-    //                 "#ecf0f1",
-    //                 // "#619cab",
-    //                 // "#5bbfd9",
-    //                 // "#159cbf",
-    //             ],
-    //             },
-    //         ],
-    //     });
+        //가져온 데이터 넣기
+        setData(climate_data);
+        setLabel(labels);
+        setHumidity(humidity);
+        setTemperature(temperature);
 
-    //     setData(climate_data);
+
+        console.log(labels);
     //     var climate_chart = new Chart(document.getElementById("line-chart"), {
     //     type: 'line',
     //     data: {
@@ -117,20 +122,28 @@ const DataRequester = (props) =>{
     //     }
     // });
 
-    // };
+    };
     
 
-    useEffect(()=>{
-        if(data){
+    console.log(data);
+    useEffect(()=>{ //컴포넌트 렌더링 이후에 데이터 가져오기
+        if(data.length === 1){
             getData();
+            
             console.log("useEffect");
         }
     },[encodeUrl])
 
     return (
         <div className="page">
-            
+            {/* <QueryClientProvider client={queryClient}>
 
+                <div className='chart'>
+                <LineChart chartData={climateData}/>
+                <canvas id="climate_chart"></canvas>
+            </div>
+            </QueryClientProvider> */}
+            
             <ClimateChart lables={labels} humidity={humidity}/>
         </div>
     )
