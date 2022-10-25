@@ -1,7 +1,7 @@
 import '../App.css';
 import { useQuery, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import ClimateChart from "./ClimateChart";
+// import ClimateChart from "./ClimateChart";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
 import Display from '../pages/dashboard/Display';
@@ -80,7 +80,6 @@ const DataRequester = (props) =>{
         setLabel(labels);
         setHumidity(humidity);
         setTemperature(temperature);
-
         // console.log("fff" + labels);
         // console.log("길이 ::: " +labels.length + " " + humidity.length);
     };
@@ -97,9 +96,10 @@ const DataRequester = (props) =>{
         // }
     },[encodeUrl])
 
+    
     //그래프
     const humidity_data ={
-    // const [humidityData, setHumidityData] = useState({
+    // const [humidity_data, setHumidityData] = useState({
         labels: labels,
         datasets: [
             {
@@ -109,10 +109,10 @@ const DataRequester = (props) =>{
             },
         ],
     // });
-
+    
     };
     const temperature_data ={
-    // const [temperatureData, setTemperatureData] = useState({
+    // const [temperature_data, setTemperatureData] = useState({
         labels: labels,
         datasets: [
             {
