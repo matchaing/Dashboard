@@ -11,13 +11,13 @@ const Nav = () => {
             <div>
                 <nav>
                     
-                    <div>
+                    <div id='border'>
                         <Link to="/display">데이터 현황</Link>
                     </div>
-                    <div>
+                    <div id='border'>
                         <Link to="/detail">데이터 상세 분석</Link>
                     </div>
-                    <div>
+                    <div id='border'>
                         <Link to="/risk">위험도 분석</Link>
                     </div>
                 </nav>

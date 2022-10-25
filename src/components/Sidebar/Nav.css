@@ -16,6 +16,13 @@ nav {
 a {
     text-decoration: none;
     color: black;
+    display: block;
+    /* background-color: white; */
+    /* margin: 10px; */
+    /* border-bottom-style: ; */
+}
+a:hover{
+    color:rgb(0, 0, 255);
 }
 
 
@@ -23,9 +30,10 @@ nav > div {
     text-decoration: none;
     display: block;
     color: #000;
-    padding: 22px;
+    padding: 23px;
     text-align: left;
-    margin-left: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
     text-decoration-line: none;
     font-size: 14px;
     font-weight: bold;
