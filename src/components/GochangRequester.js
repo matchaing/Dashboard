@@ -36,7 +36,7 @@ const GochangRequester = (props) =>{
         const res = await fetch(encodeUrl, {method: 'GET'})
         .then((res)=>res.json());
         
-        let result = JSON.stringify(res);
+        let result = JSON.stringify(res.slice(0,20));
         let count = 0;
         if(count>1){
             jsondata.splice(0);
@@ -55,7 +55,7 @@ const GochangRequester = (props) =>{
             alert("데이터가 비어있습니다.");
             return;
         }
-        // console.log(typeof(jsondata); //object인거 확인
+        console.log(typeof(jsondata)); //object인거 확인
         
         // if(!(labels.length == 0)){
         //     labels = [];
@@ -68,25 +68,26 @@ const GochangRequester = (props) =>{
         //     temperature.splice(0);
         // }
         // count++;
-        // for(let i=0; i<length; i++){
-        //     if(!Number.isNaN(parseInt(jsondata[i].DAILYDATADT))){
-        //         labels.push(parseInt(jsondata[i].DAILYDATADT));
-        //         humidity.push(parseInt(jsondata[i].HUMIDITY));
-        //         temperature.push(parseInt(jsondata[i].TEMPERATURE));
-        //     }
-        // }
+        for(let i=0; i<length; i++){
+            if(!Number.isNaN(parseInt(jsondata[i].FILE_DT))){
+                file_dt.push(parseInt(jsondata[i].FILE_DT));
+                equipment.push(parseInt(jsondata[i].EQUIPMENT_NAME));
+                force_1.push(parseInt(jsondata[i].FORCE_1));
+                force_2.push(parseInt(jsondata[i].FORCE_2));
+                force_3.push(parseInt(jsondata[i].FORCE_3));
+                force_4.push(parseInt(jsondata[i].FORCE_4));
+            }
+        }
         
             
-        // console.log(temperature);
-
         //가져온 데이터 넣기
-        // setData(jsondata);
-        // setLabel(labels);
-        // setHumidity(humidity);
-        // setTemperature(temperature);
+        setFile_dt(file_dt);
+        setEquipment(equipment);
+        setForce_1(force_1);
+        setForce_2(force_2);
+        setForce_3(force_3);
+        setForce_4(force_4);
 
-        // console.log("fff" + labels);
-        // console.log("길이 ::: " +labels.length + " " + humidity.length);
     };
     
 
@@ -102,20 +103,35 @@ const GochangRequester = (props) =>{
     },[encodeUrl])
 
     //그래프
-    // const humidity_data ={
-    // // const [humidityData, setHumidityData] = useState({
-    //     labels: labels,
-    //     datasets: [
-    //         {
-    //         label: "Humidity",
-    //         data: humidity,
-    //         backgroundColor: "#ecf0f1",
-    //         },
-    //     ],
-    // // });
+    const force_data ={
+    // const [humidityData, setHumidityData] = useState({
+        labels: file_dt,
+        datasets: [
+            {
+            label: "force 1",
+            data: force_1,
+            backgroundColor: "#fd6059",
+            },
+            {
+            label: "force 2",
+            data: force_2,
+            backgroundColor: "#febe2e",
+            },
+            {
+            label: "force 3",
+            data: force_3,
+            backgroundColor: "#34c85a",
+            },
+            {
+            label: "force 4",
+            data: force_4,
+            backgroundColor: "#0075e8",
+            },
+        ],
+    // });
 
-    // };
-    // const temperature_data ={
+    };
+    // const force_2_data ={
     // // const [temperatureData, setTemperatureData] = useState({
     //     labels: labels,
     //     datasets: [
@@ -132,10 +148,10 @@ const GochangRequester = (props) =>{
         <div>
             {/* <button>버튼</button> */}
             {/* <QueryClientProvider client={queryClient}> */}
-                    {/* <div className="chart" id="reData">
-                        <LineChart chartData={humidity_data}/>
+                    <div className="chart">
+                        <LineChart chartData={force_data}/>
                     </div>
-                    <div className="chart" id="reData">
+                    {/* <div className="chart">
                         <LineChart chartData={temperature_data}/>
                     </div> */}
             {/* </QueryClientProvider> */}

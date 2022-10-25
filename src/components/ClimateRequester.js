@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import ClimateChart from "./ClimateChart";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
+import Display from '../pages/dashboard/Display';
 
 //react-query 사용
 const queryClient = new QueryClient();
@@ -127,10 +128,10 @@ const DataRequester = (props) =>{
         <div>
             {/* <button>버튼</button> */}
             {/* <QueryClientProvider client={queryClient}> */}
-                    <div className="chart" id="reData">
+                    <div className="chart">
                         <LineChart chartData={humidity_data}/>
                     </div>
-                    <div className="chart" id="reData">
+                    <div style={{display:'flex'}} className="chart">
                         <LineChart chartData={temperature_data}/>
                     </div>
             {/* </QueryClientProvider> */}
