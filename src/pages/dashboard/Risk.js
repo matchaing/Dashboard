@@ -10,7 +10,7 @@ class Risk extends React.Component {
                 <p className= "p-text">위험도 분석</p>
             
                 <SearchRisk/>
-                <SearchDate/>
+                {/* <SearchDate/> */}
             </div>
         )
     }
