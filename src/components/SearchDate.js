@@ -1,6 +1,7 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-import DataRequester from './DataRequester';
+import ClimateRequester from './ClimateRequester';
+import GochangRequester from './GochangRequester';
 
 function getvalue(){
     var idx = document.getElementById('idx').value;
@@ -43,8 +44,8 @@ export default function SearchDate(){
                 </form>
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
                     <div>
-                        <DataRequester param={"climate"} s={startdate.toString()} e={enddate.toString()}/>
-                        {/* <DataRequester param={"gochang"} s={startdate.toString()} e={enddate.toString()}/> */}
+                        <ClimateRequester s={startdate.toString()} e={enddate.toString()}/>
+                        <GochangRequester s={startdate.toString()} e={enddate.toString()}/>
                     </div>
                 {/* </form> */}
             </div>

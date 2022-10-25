@@ -63,7 +63,7 @@
 }
 .SearchDate button{
   margin-top: 20px;
-  width: 80px;
+  width: 70px;
   /* width: auto; */
   padding: 8px;
   background: #4871b2;
@@ -124,8 +124,8 @@
 }
 
 .chart{
-  width:80%;
-  /* width: 400px; */
+  /* width:80%; */
+  width: 400px;
   margin-top: 20px;
   margin-bottom: 40px;
 }
