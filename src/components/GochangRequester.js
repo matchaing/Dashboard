@@ -37,7 +37,7 @@ const GochangRequester = (props) =>{
         const res = await fetch(encodeUrl, {method: 'GET'})
         .then((res)=>res.json());
         
-        let result = JSON.stringify(res.slice(0,30));
+        let result = JSON.stringify(res.slice(0,20));
         let count = 0;
         if(count>1){
             jsondata.splice(0);
@@ -77,7 +77,7 @@ const GochangRequester = (props) =>{
                 force_2.push(parseInt(jsondata[i].FORCE_2));
                 force_3.push(parseInt(jsondata[i].FORCE_3));
                 force_4.push(parseInt(jsondata[i].FORCE_4));
-                qmmax.pupsh(parseInt(jsondata[i].QMMAX));
+                qmmax.push(parseInt(jsondata[i].QMMAX));
             }
         }
         

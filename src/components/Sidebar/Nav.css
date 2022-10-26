@@ -3,7 +3,7 @@ nav {
     text-decoration: none;
     list-style-type: none;
     background-color: rgb(243, 243, 243);
-    width:160px;
+    width:180px;
     padding: 0;
     padding-top: 60px;
     margin: 0;
@@ -25,12 +25,21 @@ a:hover{
     color:rgb(0, 0, 255);
 }
 
+.icon{
+    float: left;
+    padding-right: 5px;
+}
+icon:hover{
+    color:rgb(0, 0, 255);
+}
 
 nav > div {
     text-decoration: none;
     display: block;
     color: #000;
-    padding: 23px;
+    padding-left: 18px;
+    padding-top: 23px;
+    padding-bottom: 23px;
     text-align: left;
     margin-left: 3px;
     margin-right: 3px;
