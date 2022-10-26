@@ -3,6 +3,7 @@ import { useQuery, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ClimateChart from "./ClimateChart";
 import LineChart from "../pages/charts/LineChart";
+import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";
 
 //react-query 사용
@@ -29,14 +30,14 @@ const GochangRequester = (props) =>{
     const [force_2, setForce_2] = useState([]);
     const [force_3, setForce_3] = useState([]);
     const [force_4, setForce_4] = useState([]);
-    // const [temperature, setTemperature] = useState([]);
+    const [qmmax, setQmmax] = useState([]);
 
 
     const getData = async()=>{
         const res = await fetch(encodeUrl, {method: 'GET'})
         .then((res)=>res.json());
         
-        let result = JSON.stringify(res.slice(0,20));
+        let result = JSON.stringify(res.slice(0,30));
         let count = 0;
         if(count>1){
             jsondata.splice(0);
@@ -76,6 +77,7 @@ const GochangRequester = (props) =>{
                 force_2.push(parseInt(jsondata[i].FORCE_2));
                 force_3.push(parseInt(jsondata[i].FORCE_3));
                 force_4.push(parseInt(jsondata[i].FORCE_4));
+                qmmax.pupsh(parseInt(jsondata[i].QMMAX));
             }
         }
         
@@ -87,7 +89,7 @@ const GochangRequester = (props) =>{
         setForce_2(force_2);
         setForce_3(force_3);
         setForce_4(force_4);
-
+        setQmmax(qmmax);
     };
     
 
@@ -104,7 +106,6 @@ const GochangRequester = (props) =>{
 
     //그래프
     const force_data ={
-    // const [humidityData, setHumidityData] = useState({
         labels: file_dt,
         datasets: [
             {
@@ -131,18 +132,17 @@ const GochangRequester = (props) =>{
     // });
 
     };
-    // const force_2_data ={
-    // // const [temperatureData, setTemperatureData] = useState({
-    //     labels: labels,
-    //     datasets: [
-    //         {
-    //         label: "Temperature",
-    //         data: temperature,
-    //         backgroundColor: "#5bbfd9",
-    //         },
-    //     ],
-    // // });
-    // };
+    const qmmax_data ={
+        labels: file_dt,
+        datasets: [
+            {
+            label: "qmmax",
+            data: qmmax,
+            backgroundColor: "#7fb39d",
+            },
+        ],
+    // });
+    };
 
     return (
         <div>
@@ -151,9 +151,9 @@ const GochangRequester = (props) =>{
                     <div className="chart">
                         <LineChart chartData={force_data}/>
                     </div>
-                    {/* <div className="chart">
-                        <LineChart chartData={temperature_data}/>
-                    </div> */}
+                    <div style={{display:'flex'}} className="chart">
+                        <BarChart chartData={qmmax_data}/>
+                    </div>
             {/* </QueryClientProvider> */}
             
             {/* <ClimateChart labels={labels} humidity={humidity} temperature={temperature}/> */}
