@@ -1,12 +1,13 @@
 import '../App.css';
-import { useQuery, useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { useEffect, useState } from "react";
+// import { useQuery, useEffect, useState } from "react";
+// import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
 import Display from '../pages/dashboard/Display';
 
 //react-query 사용
-const queryClient = new QueryClient();
+// const queryClient = new QueryClient();
 
 const DataRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
@@ -42,6 +43,7 @@ const DataRequester = (props) =>{
         // if(param === "climate"){
             
         // }
+        console.log("climate getData");
 
         ///데이터 존재 확인
         let length = jsondata.length;
@@ -91,7 +93,7 @@ const DataRequester = (props) =>{
         // if(!(data.length == 1)){
             getData();
             
-            console.log("useEffect");
+            console.log("climate : useEffect");
         // }
     },[encodeUrl])
 

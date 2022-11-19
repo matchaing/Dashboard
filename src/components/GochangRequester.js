@@ -1,12 +1,13 @@
 import '../App.css';
-import { useQuery, useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { useEffect, useState } from "react";
+// import { useQuery, useEffect, useState } from "react";
+// import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";
 
 //react-query 사용
-const queryClient = new QueryClient();
+// const queryClient = new QueryClient();
 
 const GochangRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
@@ -48,6 +49,7 @@ const GochangRequester = (props) =>{
             
         // }
 
+        console.log("gochang getData");
         ///데이터 존재 확인
         let length = jsondata.length;
         console.log(length);
@@ -99,7 +101,7 @@ const GochangRequester = (props) =>{
         // if(!(data.length == 1)){
             getData();
             
-            console.log("useEffect");
+            console.log("gochang : useEffect");
         // }
     },[encodeUrl])
 
