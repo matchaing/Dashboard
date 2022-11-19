@@ -59,11 +59,14 @@ const DataRequester = (props) =>{
         //     console.log("초기화 이후 : " + labels);
 
         // }
-        if(labels.length > 1){ //데이터가 이미 있다면 초기화
-            labels.splice(0);
-            humidity.splice(0);
-            temperature.splice(0);
-        }
+        /*if(labels.length > 1){ //데이터가 이미 있다면 초기화
+            
+            // labels.splice(0);
+            // humidity.splice(0);
+            // temperature.splice(0);
+            // humidity_data.distory();
+            // temperature_data.distory();
+        }*/
         count++;
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].DAILYDATADT))){
