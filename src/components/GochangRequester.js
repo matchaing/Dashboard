@@ -1,7 +1,6 @@
 import '../App.css';
 import { useQuery, useEffect, useState } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
-import ClimateChart from "./ClimateChart";
 import LineChart from "../pages/charts/LineChart";
 import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";

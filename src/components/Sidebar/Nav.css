@@ -11,26 +11,23 @@ nav {
     height: 100%;
     overflow: auto;
     z-index: 1;
-    /* border: solid 1px; */
 }
+
 a {
     text-decoration: none;
-    color: black;
+    color: rgb(37, 37, 37);
     display: block;
-    /* background-color: white; */
-    /* margin: 10px; */
-    /* border-bottom-style: ; */
+    width: 100%;
 }
-a:hover{
-    color:rgb(0, 0, 255);
+
+.navbar:hover{
+    width: 100%;
+    background-color: rgb(213, 213, 213);
 }
 
 .icon{
     float: left;
     padding-right: 5px;
-}
-icon:hover{
-    color:rgb(0, 0, 255);
 }
 
 nav > div {

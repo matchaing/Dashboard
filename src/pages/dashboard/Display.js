@@ -9,14 +9,13 @@ const queryClient = new QueryClient();
 
 // class Display extends React.Component{
 export default function Display(){
-
         return (
             <div className="page">
                 <p className= "p-text">데이터 현황</p>
-                {/* <QueryClientProvider client={queryClient}> */}
-                <ClimateRequester s={20180103} e={20180103}/>
-                <GochangRequester s={20211208} e={20211208}/>
-                {/* </QueryClientProvider> */}
+                <QueryClientProvider client={queryClient}>
+                    <ClimateRequester s={20180103} e={20180103}/>
+                    <GochangRequester s={20211208} e={20211208}/>
+                </QueryClientProvider>
             </div>
         );
 }

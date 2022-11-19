@@ -13,17 +13,15 @@ const Nav = () => {
         <Router>
             <div>
                 <nav>
-                    
-                    
-                    <div>
+                    <div class="navbar">
                         <AiOutlineHome className="icon" size ="20"/>
                         <Link to="/display">데이터 현황</Link>
                     </div>
-                    <div>
+                    <div class="navbar">
                         <AiOutlineBarChart className="icon" size ="20"/>
                         <Link to="/detail">데이터 상세 분석</Link>
                     </div>
-                    {/* <div>
+                    {/* <div class="navbar">
                         <AiOutlineLineChart className="icon" size ="20"/>
                         <Link to="/risk">위험도 분석</Link>
                     </div> */}
