@@ -5,11 +5,11 @@ DB 데이터 모니터링을 위한 대시보드 프로젝트 입니다.
 
 
 ## 개발환경
-- react 18.2.0
-- 
+
 
 ## 파일 구조
 Dashboard-FE
+'''
 .
 ├── README.md
 ├── .gitignore
@@ -47,7 +47,7 @@ Dashboard-FE
             ├── Display.js (데이터 현황)
             ├── Detail.js (데이터 상세 분석)
             └── Risk.js (위험도 분석)
-   
+   '''
 
 ## 설치
 '''npm install -g '''
