@@ -31,11 +31,19 @@
   float: left;
   background-color: #fafafa;
   padding: 20px;
-  /* width: 400px; */
-  height: 230px;
+  width: 50%;
+  /* height: 230px; */
   /* margin-left: 20px; */
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.risk-chart{
+  float: center;
+  background-color: #fafafa;
+  padding: 20px;
+  margin-left: 90px;
+  width: 67%;
 }
 .page{
   padding-top: 70px;

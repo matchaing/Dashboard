@@ -1,5 +1,5 @@
 import '../App.css';
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 import ClimateRequester from './ClimateRequester';
 import GochangRequester from './GochangRequester';
 
@@ -28,18 +28,23 @@ export default function SearchDate(){
         <div>
             <div className='SearchDate'>
                 <form>
-                    <input type="date" name="sdate" min="2018-01-01" id="s_date" 
-                    value={startdate}
-                    onChange={(e)=>{
+                    {/* <div className='SearchDate'> */}
+                        <input type="date" name="sdate" min="2018-01-01" id="s_date" 
+                        value={startdate}
+                        onChange={(e)=>{
                         console.log(e.target.value);
                         setStartdate(e.target.value);
                         } }/>
-                    <input type="date" name="edate" min={startdate} id="e_date"
+                    {/* </div> */}
+                    {/* <div className='SearchDate'> */}
+                        <input type="date" name="edate" min={startdate} id="e_date"
                     value={enddate}
                     onChange={(e)=>{
                         console.log(e.target.value);
                         setEnddate(e.target.value);
                         } }/>
+                    {/* </div> */}
+                    
                     {/* <button onClick={handleClickButton}>조회하기</button> */}
                 </form>
                     {/* <button onClick={()=>document.location.href=getvalue()}>조회하기</button> */}
