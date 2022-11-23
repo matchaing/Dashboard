@@ -1,13 +1,8 @@
 # Dashboard-FE
-DB 데이터 모니터링을 위한 대시보드 프로젝트 입니다.
+DB 데이터 모니터링을 위한 대시보드 프로젝트
 
 ![image](https://user-images.githubusercontent.com/69198709/203470453-62852518-8825-414c-8f4c-80b1254d28a4.png)
 
-
-## 개발환경
--
--
--
 
 ## 파일 구조
 ```
@@ -50,6 +45,3 @@ Dashboard-FE
             ├── Detail.js (데이터 상세 분석)
             └── Risk.js (위험도 분석)
    ```
-
-## 설치
-```npm install -g ```
