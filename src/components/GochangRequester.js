@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import LineChart from "../pages/charts/LineChart";
 import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 //react-query 사용
 // const queryClient = new QueryClient();

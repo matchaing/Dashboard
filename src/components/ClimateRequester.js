@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 // import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
-import Display from '../pages/dashboard/Display';
+// import Display from '../pages/dashboard/Display';
 
 //react-query 사용
 // const queryClient = new QueryClient();
