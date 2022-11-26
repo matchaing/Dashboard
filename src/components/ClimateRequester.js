@@ -33,10 +33,10 @@ const DataRequester = (props) =>{
         .then((res)=>res.json());
         
         let result = JSON.stringify(res);
-        let count = 0;
-        if(count>1){
-            jsondata.splice(0);
-        }
+        // let count = 0;
+        // if(count>1){
+        //     jsondata.splice(0);
+        // }
         let jsondata = (JSON.parse(result));
         // console.log(jsondata);
 
@@ -67,7 +67,7 @@ const DataRequester = (props) =>{
             // humidity_data.distory();
             // temperature_data.distory();
         }*/
-        count++;
+        // count++;
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].DAILYDATADT))){
                 labels.push(parseInt(jsondata[i].DAILYDATADT));

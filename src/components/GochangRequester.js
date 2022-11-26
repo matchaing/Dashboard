@@ -39,10 +39,10 @@ const GochangRequester = (props) =>{
         .then((res)=>res.json());
         
         let result = JSON.stringify(res.slice(0,20));
-        let count = 0;
-        if(count>1){
-            jsondata.splice(0);
-        }
+        //let count = 0;
+        // if(count>1){
+        //     jsondata.splice(0);
+        // }
         let jsondata = (JSON.parse(result));
         console.log(jsondata);
 
@@ -58,7 +58,7 @@ const GochangRequester = (props) =>{
             alert("데이터가 비어있습니다.");
             return;
         }
-        console.log(typeof(jsondata)); //object인거 확인
+        // console.log(typeof(jsondata)); //object인거 확인
         
         // if(!(labels.length == 0)){
         //     labels = [];
