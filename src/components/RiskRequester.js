@@ -12,8 +12,8 @@ const RiskRequester = (props) =>{
     console.log(startdate_str,enddate_str);
     
     //http://127.0.0.1:5000/Dashboard/risk
-    // let rawUrl= `http://localhost:8080/Dashboard/detail/risk?sdate=${startdate_str}&edate=${enddate_str}`;
-    let rawUrl = `http://localhost:8080/Dashboard/detail/risk?sdate=20211208&edate=20211208`;
+    let rawUrl= `http://localhost:8080/Dashboard/detail/risk?sdate=${startdate_str}&edate=${enddate_str}`;
+    // let rawUrl = `http://localhost:8080/Dashboard/detail/risk?sdate=20211208&edate=20211208`;
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
     
@@ -50,10 +50,10 @@ const RiskRequester = (props) =>{
                 z_score.push(parseFloat(jsondata[i].z_score));
                 label.push(parseInt(jsondata[i].label));
                 if(parseInt(jsondata[i].label) == "1"){
-                    z_score_risk.push(parseFloat(jsondata[i].z_score_risk));
+                    z_score_risk.push(parseFloat(jsondata[i].z_score));
                 }
                 else{
-                    z_score_safe.push(parseFloat(jsondata[i].z_score_safe));
+                    z_score_safe.push(parseFloat(jsondata[i].z_score));
                 }
             }
         }
@@ -69,8 +69,8 @@ const RiskRequester = (props) =>{
         // setData(jsondata);
         setFile_dt(file_dt);
         setZ_score(z_score);
-        setz_score_R(z_score_risk);
-        setz_score_S(z_score_safe);
+        // setz_score_R(z_score_risk);
+        // setz_score_S(z_score_safe);
         setLabel(label);
 
     };
@@ -94,21 +94,17 @@ const RiskRequester = (props) =>{
         {
             label: 'Safety',
             data: z_score_safe,
-            backgroundColor: [
-                "#6fba2c"
-            ],
-            yAxisID:'y',
-            position: 'left',
+            backgroundColor: "#6fba2c",
+            // yAxisID:'y',
+            showLine:false,
         },
         {
             label: 'Risk',
             data: z_score_risk,
-            backgroundColor: [
-                "#dc0e0e"
-            ],
-            yAxisID:'y2',
-            position: 'right',
+            backgroundColor: "#dc0e0e",
+            // yAxisID:'y2',
             tension:0.4,
+            showLine:false,
             // grid:false,
         },
     ],
@@ -133,8 +129,8 @@ const RiskRequester = (props) =>{
     return (
         <div className="risk-chart">
             {/* <ScatterChart chartData={risk}/> */}
-            {/* <LineChart chartData={risk}/> */}
-            <LineChart chartData={risk_data}/>
+            <LineChart chartData={risk}/>
+            {/* <LineChart chartData={risk_data}/> */}
         </div>
 
     );
