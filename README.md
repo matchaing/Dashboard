@@ -13,6 +13,11 @@ DB 데이터 모니터링을 위한 대시보드 프로젝트
   - npm : 8.15.0
   - node : 16.17.0
 
+## 실행
+
+`npm run start`
+
+
 ## 파일 구조
 
 ```
@@ -54,7 +59,3 @@ Dashboard-FE
             ├── Detail.js (데이터 상세 분석)
             └── Risk.js (위험도 분석)
 ```
-
-## 실행
-
-`npm run start`

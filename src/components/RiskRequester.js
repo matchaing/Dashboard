@@ -128,7 +128,6 @@ const RiskRequester = (props) =>{
 
     return (
         <div className="risk-chart">
-            {/* <ScatterChart chartData={risk}/> */}
             <LineChart chartData={risk}/>
             {/* <LineChart chartData={risk_data}/> */}
         </div>
