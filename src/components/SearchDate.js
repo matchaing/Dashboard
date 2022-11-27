@@ -1,7 +1,8 @@
 import '../App.css';
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import ClimateRequester from './ClimateRequester';
-import GochangRequester from './GochangRequester';
+// import GochangRequester from './GochangRequester';
+const GochangRequester = React.lazy(() => import('./GochangRequester'));
 
 function getvalue(){
     var idx = document.getElementById('idx').value;

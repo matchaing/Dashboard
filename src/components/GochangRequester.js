@@ -1,14 +1,14 @@
 import '../App.css';
 import { useEffect, useState } from "react";
 // import { useQuery, useEffect, useState } from "react";
-// import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 
 //react-query 사용
-// const queryClient = new QueryClient();
+const queryClient = new QueryClient();
 
 const GochangRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
@@ -45,10 +45,7 @@ const GochangRequester = (props) =>{
         // }
         let jsondata = (JSON.parse(result));
         console.log(jsondata);
-
-        // if(param === "climate"){
-            
-        // }
+        
 
         console.log("gochang getData");
         ///데이터 존재 확인

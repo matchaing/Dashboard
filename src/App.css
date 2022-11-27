@@ -53,6 +53,7 @@
 }
 
 .p-text{
+  /* float:left; */
   border:1px;
   color: rgb(9, 49, 136);
   font-weight: bold;
@@ -76,8 +77,8 @@
   background-color: #eaeaea;
   outline-color: #4871b2;
 }
-.SearchDate button{
-  margin-top: 20px;
+button{
+  /* margin-top: 20px; */
   width: 70px;
   /* width: auto; */
   padding: 8px;
