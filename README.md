@@ -1,6 +1,6 @@
 # Dashboard-FE
 
-DB 데이터 모니터링을 위한 대시보드 프로젝트
+DB 데이터 모니터링을 위한 대시보드 프로젝트입니다.
 
 ## 결과 화면
 
@@ -39,7 +39,7 @@ Dashboard-FE
     ├── index.js
     ├── index.css
     ├── setProxy.js
-    |
+    │
     ├── components
     │   ├── Header
     │   │   └── Header.js
