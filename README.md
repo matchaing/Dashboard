@@ -1,6 +1,8 @@
 # Dashboard-FE
 
-DB 데이터 모니터링을 위한 대시보드 프로젝트
+DB 데이터 모니터링을 위한 대시보드 프로젝트입니다.
+
+## 결과 화면
 
 ![image](https://user-images.githubusercontent.com/69198709/204220651-31cde8fa-d5d8-463a-bfce-adc87d48758f.png)
 
