@@ -1,13 +1,7 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-// import { useQuery, useEffect, useState } from "react";
-// import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
-// import Display from '../pages/dashboard/Display';
-
-//react-query 사용
-// const queryClient = new QueryClient();
 
 const DataRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
@@ -33,41 +27,19 @@ const DataRequester = (props) =>{
         .then((res)=>res.json());
         
         let result = JSON.stringify(res);
-        // let count = 0;
-        // if(count>1){
-        //     jsondata.splice(0);
-        // }
+        
         let jsondata = (JSON.parse(result));
-        // console.log(jsondata);
-
-        // if(param === "climate"){
-            
-        // }
+        
         console.log("climate getData");
 
         ///데이터 존재 확인
         let length = jsondata.length;
         console.log(length);
         if(!(enddate_str == 0) && length == 0){
-            alert("데이터가 비어있습니다.");
+            alert("기후 데이터가 비어있습니다.");
             return;
         }
-        // console.log(typeof(jsondata); //object인거 확인
-        
-        // if(!(labels.length == 0)){
-        //     labels = [];
-        //     console.log("초기화 이후 : " + labels);
 
-        // }
-        /*if(labels.length > 1){ //데이터가 이미 있다면 초기화
-            
-            // labels.splice(0);
-            // humidity.splice(0);
-            // temperature.splice(0);
-            // humidity_data.distory();
-            // temperature_data.distory();
-        }*/
-        // count++;
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].DAILYDATADT))){
                 labels.push(parseInt(jsondata[i].DAILYDATADT));
@@ -84,8 +56,6 @@ const DataRequester = (props) =>{
         setLabel(labels);
         setHumidity(humidity);
         setTemperature(temperature);
-        // console.log("fff" + labels);
-        // console.log("길이 ::: " +labels.length + " " + humidity.length);
     };
     
 
@@ -103,26 +73,26 @@ const DataRequester = (props) =>{
     
     //그래프
     const humidity_data ={
-    // const [humidity_data, setHumidityData] = useState({
         labels: labels,
         datasets: [
             {
             label: "Humidity",
             data: humidity,
             backgroundColor: "#ecf0f1",
+            tension:0.4,
             },
         ],
     // });
     
     };
     const temperature_data ={
-    // const [temperature_data, setTemperatureData] = useState({
         labels: labels,
         datasets: [
             {
             label: "Temperature",
             data: temperature,
             backgroundColor: "#5bbfd9",
+            tension:0.4,
             },
         ],
     // });
@@ -130,17 +100,13 @@ const DataRequester = (props) =>{
 
     return (
         <div>
-            {/* <button>버튼</button> */}
-            {/* <QueryClientProvider client={queryClient}> */}
                     <div className="chart">
                         <LineChart chartData={humidity_data}/>
                     </div>
                     <div style={{display:'flex'}} className="chart">
                         <LineChart chartData={temperature_data}/>
                     </div>
-            {/* </QueryClientProvider> */}
             
-            {/* <ClimateChart labels={labels} humidity={humidity} temperature={temperature}/> */}
         </div>
     )
 }

@@ -1,7 +1,5 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-import ScatterChart from "../pages/charts/ScatterChart";
-import { Scatter } from "react-chartjs-2";
 import LineChart from "../pages/charts/LineChart";
 import { Line } from "react-chartjs-2";
 
@@ -36,41 +34,36 @@ const RiskRequester = (props) =>{
         // console.log("json? : " + jsondata);
 
         console.log("risk getdata");
-        ///데이터 존재 확인
+
         let length = jsondata.length;
         console.log(length);
-        if(!(enddate_str == 0) && length == 0){
-            alert("데이터가 비어있습니다.");
-            return;
-        }
+        // if(!(enddate_str == 0) && length == 0){
+        //     alert("데이터가 비어있습니다.");
+        //     return;
+        // }
 
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].FILE_DT))){
                 file_dt.push(parseInt(jsondata[i].FILE_DT));
                 z_score.push(parseFloat(jsondata[i].z_score));
                 label.push(parseInt(jsondata[i].label));
+                
+                //label이 1인 객체의 z_score는 risk로 저장
                 if(parseInt(jsondata[i].label) == "1"){
                     z_score_risk.push(parseFloat(jsondata[i].z_score));
                 }
-                else{
+                else{ 
+                    z_score_risk.push(null);
                     z_score_safe.push(parseFloat(jsondata[i].z_score));
                 }
             }
         }
 
-        // for(let i=0; i<length; i++){
-        //     if(parseInt(jsondata[i]) == "1"){
-        //         z_score_risk.push(parseFloat(jsondata[i].z_score_risk));
-        //     }
-        // }
-        
-         
         //가져온 데이터 넣기
-        // setData(jsondata);
         setFile_dt(file_dt);
         setZ_score(z_score);
-        // setz_score_R(z_score_risk);
-        // setz_score_S(z_score_safe);
+        setz_score_R(z_score_risk);
+        setz_score_S(z_score_safe);
         setLabel(label);
 
     };
@@ -94,42 +87,24 @@ const RiskRequester = (props) =>{
         {
             label: 'Safety',
             data: z_score_safe,
-            backgroundColor: "#6fba2c",
-            // yAxisID:'y',
+            backgroundColor: "#34c85a",
             showLine:false,
         },
         {
             label: 'Risk',
             data: z_score_risk,
-            backgroundColor: "#dc0e0e",
-            // yAxisID:'y2',
-            tension:0.4,
+            backgroundColor: "#fd6059",
+            // tension:0.4,
             showLine:false,
             // grid:false,
         },
     ],
     
     };
-    
-    const risk_data ={
-        labels: file_dt,
-        datasets: [
-            {
-            label: "risk",
-            data: z_score,
-            backgroundColor: "#7fb39d",
-            tension:0.4,
-            showLine: false
-            },
-        ],
-    // });
-    };
-    
 
     return (
         <div className="risk-chart">
             <LineChart chartData={risk}/>
-            {/* <LineChart chartData={risk_data}/> */}
         </div>
 
     );

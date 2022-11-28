@@ -1,19 +1,13 @@
 import '../App.css';
 import { useEffect, useState } from "react";
-// import { useQuery, useEffect, useState } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
 import LineChart from "../pages/charts/LineChart";
 import BarChart from "../pages/charts/BarChart";
 import { Line } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 
-//react-query 사용
-const queryClient = new QueryClient();
-
 const GochangRequester = (props) =>{
     const startdate_str = props.s.toString().replace(/-/g,"");
     const enddate_str = props.e.toString().replace(/-/g, "");
-    // const param = props.param.toString();
     console.log(startdate_str,enddate_str);
 
     //climate : 20180101~20180103
@@ -21,7 +15,6 @@ const GochangRequester = (props) =>{
     let rawUrl = `http://localhost:8080/Dashboard/detail/gochang?sdate=${startdate_str}&edate=${enddate_str}`;
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
-    // let count = 0;
 
     const [data, setData] = useState([0]);
 
@@ -39,10 +32,7 @@ const GochangRequester = (props) =>{
         .then((res)=>res.json());
         
         let result = JSON.stringify(res.slice(0,20));
-        //let count = 0;
-        // if(count>1){
-        //     jsondata.splice(0);
-        // }
+
         let jsondata = (JSON.parse(result));
         console.log(jsondata);
         
@@ -52,7 +42,7 @@ const GochangRequester = (props) =>{
         let length = jsondata.length;
         console.log(length);
         if(!(enddate_str == 0) && length == 0){
-            alert("데이터가 비어있습니다.");
+            alert("고창 데이터가 비어있습니다.");
             return;
         }
         // console.log(typeof(jsondata)); //object인거 확인
@@ -66,7 +56,7 @@ const GochangRequester = (props) =>{
             force_data.distory();
             qmmax_data.distory();
         }*/
-        // count++;
+
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].FILE_DT))){
                 file_dt.push(parseInt(jsondata[i].FILE_DT));
@@ -79,7 +69,6 @@ const GochangRequester = (props) =>{
             }
         }
         
-            
         //가져온 데이터 넣기
         setFile_dt(file_dt);
         setEquipment(equipment);
@@ -92,7 +81,6 @@ const GochangRequester = (props) =>{
     
 
     console.log(data);
-    // console.log(labels);
 
     useEffect(()=>{ //컴포넌트 렌더링 이후에 데이터 가져오기
         // if(!(data.length == 1)){
@@ -110,26 +98,29 @@ const GochangRequester = (props) =>{
             label: "force 1",
             data: force_1,
             backgroundColor: "#fd6059",
+            tension:0.4,
             },
             {
             label: "force 2",
             data: force_2,
             backgroundColor: "#febe2e",
+            tension:0.4,
             },
             {
             label: "force 3",
             data: force_3,
             backgroundColor: "#34c85a",
+            tension:0.4,
             },
             {
             label: "force 4",
             data: force_4,
             backgroundColor: "#0075e8",
+            tension:0.4,
             },
         ],
-    // });
-
     };
+
     const qmmax_data ={
         labels: file_dt,
         datasets: [
@@ -139,22 +130,16 @@ const GochangRequester = (props) =>{
             backgroundColor: "#7fb39d",
             },
         ],
-    // });
     };
 
     return (
         <div>
-            {/* <button>버튼</button> */}
-            {/* <QueryClientProvider client={queryClient}> */}
                     <div className="chart">
                         <LineChart chartData={force_data}/>
                     </div>
                     <div style={{display:'flex'}} className="chart">
                         <BarChart chartData={qmmax_data}/>
                     </div>
-            {/* </QueryClientProvider> */}
-            
-            {/* <ClimateChart labels={labels} humidity={humidity} temperature={temperature}/> */}
         </div>
     )
 }
