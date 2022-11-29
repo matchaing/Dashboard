@@ -10,9 +10,9 @@ DB 데이터 모니터링을 위한 대시보드 프로젝트입니다.
 
 ## 개발 환경
 
-- Language : Javascript ES6
+- Language : Javascript
 - Framwork : React
-- IDE : Visual Studio Code
+- Editor : Visual Studio Code
 - Version
   - npm : 8.15.0
   - node : 16.17.0
