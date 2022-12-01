@@ -8,14 +8,6 @@ import Detail from '../../pages/dashboard/Detail';
 import Display from '../../pages/dashboard/Display';
 import Risk from '../../pages/dashboard/Risk';
 
-// const display = lazy(() => {
-//     return Promise.all([
-//         import('src/pages/Dashboard/display'),
-//         new Promise(resolve => setTimeout(resolve, 2000))
-//     ])
-//     .then(([moduleExports]) => moduleExports);
-// });
-
 const Nav = () => {
     return (
         <Router>

@@ -31,7 +31,7 @@ const RiskRequester = (props) =>{
         let result = JSON.stringify(res);
 
         let jsondata = (JSON.parse(result));
-        // console.log("json? : " + jsondata);
+
 
         console.log("risk getdata");
 

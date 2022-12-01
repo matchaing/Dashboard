@@ -13,7 +13,6 @@ const DataRequester = (props) =>{
     let rawUrl = `http://localhost:8080/Dashboard/detail/climate?sdate=${startdate_str}&edate=${enddate_str}`;
     let encodeUrl = encodeURI(rawUrl);
     console.log(encodeUrl);
-    // let count = 0;
 
     const [data, setData] = useState([0]);
 

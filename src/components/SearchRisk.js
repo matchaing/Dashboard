@@ -15,13 +15,6 @@ export default function SearchDate(){
     const [enddate,setEnddate] = useState(0);
     // console.log(props);
 
-    // const handleClickButton = (e => {
-    //     // console.log('state');
-    //     const {s} = startdate.toString();
-    //     const {e} = enddate.toString();
-    //     setStartdate(s);
-
-    // };
 
     return (
         <div>

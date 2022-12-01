@@ -45,17 +45,7 @@ const GochangRequester = (props) =>{
             alert("고창 데이터가 비어있습니다.");
             return;
         }
-        // console.log(typeof(jsondata)); //object인거 확인
-        
-        // if(!(labels.length == 0)){
-        //     labels = [];
-        //     console.log("초기화 이후 : " + labels);
 
-        // }
-        /*if(file_dt.length > 1){ //데이터가 이미 있다면 초기화
-            force_data.distory();
-            qmmax_data.distory();
-        }*/
 
         for(let i=0; i<length; i++){
             if(!Number.isNaN(parseInt(jsondata[i].FILE_DT))){
