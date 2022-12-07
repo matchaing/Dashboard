@@ -21,7 +21,7 @@ DB 데이터 모니터링을 위한 대시보드 프로젝트입니다.
 
 - Language : Javascript
 - Framwork : React
-- Editor : Visual Studio Code
+- IDE : Visual Studio Code
 - Version
   - npm : 8.15.0
   - node : 16.17.0
