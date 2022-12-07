@@ -4,9 +4,18 @@ DB 데이터 모니터링을 위한 대시보드 프로젝트입니다.
 
 ## 결과 화면
 
-![image](https://user-images.githubusercontent.com/69198709/204224714-f8b28be2-47bb-4186-9c5a-be0bc97bbf7f.png)
+- ### 데이터 확인 가능
+ <p align="center"> 
+  <img src="https://user-images.githubusercontent.com/69198709/206106249-1b9470f8-6968-45dd-9549-c9fdbf2a840e.png" width="40%" height="60%">
+  <img src="https://user-images.githubusercontent.com/69198709/206104379-d124fac7-20fa-443a-a740-5e63e29957aa.GIF" width="40%" height="60%">
+ </p>
+ 
+- ### 이상 데이터 그래프
 
-![image](https://user-images.githubusercontent.com/69198709/204220442-29104fb0-e92f-4c57-83a1-b16e135c63af.png)
+ <p align="center"> 
+  <img src="https://user-images.githubusercontent.com/69198709/204220442-29104fb0-e92f-4c57-83a1-b16e135c63af.png" width="40%" height="60%">
+  <img src="https://user-images.githubusercontent.com/69198709/206104374-b4fdce15-6277-4682-998f-8acac650ba50.GIF" width="40%" height="60%">
+ </p>
 
 ## 개발 환경
 
